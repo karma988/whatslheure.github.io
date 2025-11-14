@@ -1,0 +1,170 @@
+body {
+  background: #fff;
+  color: #000;
+  font-family: "Courier New", monospace;
+  text-align: center;
+  margin: 0;
+  margin-top: 22%;
+}
+
+#fireworksCanvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 10000;
+    background: transparent;
+}
+
+h1 {
+  font-size: 4em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#affichage {
+  min-width: 3ch;
+}
+
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 35px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.menu-btn div {
+  background: #000;
+  height: 5px;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 270px;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  padding-top: 80px;
+
+  /* Scroll vertical si contenu dépasse la hauteur */
+  overflow-y: auto;
+  box-sizing: border-box; /* inclut padding dans la hauteur */
+  scrollbar-width: thin; /* Firefox */
+}
+
+#menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+#menu::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+}
+
+/* Eviter que le switch soit collé en bas et invisible */
+.switch-container {
+  margin-bottom: 20px; /* espace en bas pour toujours visible */
+}
+
+
+
+#menu button {
+  display: block;
+  width: 80%;
+  margin: 15px auto;
+  padding: 10px;
+  background: #fff;
+  color: #111;
+  border: none;
+  font-size: 1.2em;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#menu button:hover { background: #aaa; }
+
+.open #menu { left: 0; }
+.open .menu-btn div:nth-child(1) { transform: rotate(-45deg) translate(-8px, 8px); }
+.open .menu-btn div:nth-child(2) { opacity: 0; }
+.open .menu-btn div:nth-child(3) { transform: rotate(45deg) translate(-8px, -8px); }
+
+/* Slider CSS */
+
+
+.switch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* centre le switch horizontalement */
+  width: 70%;
+  max-width: 300px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin: 15px auto;
+}
+
+.switch-text-container {
+  width: 100%;
+  text-align: center;        /* texte à gauche */
+  margin-bottom: 12px; 
+  font-size: 1.2em;    /* espace entre texte et switch */
+}
+
+.switch {
+  width: 60px;       /* taille d'origine */
+  height: 28px;      /* taille d'origine */
+  margin: 0 auto;
+  position: relative;
+}
+
+.slider {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #32e0ff;
+  border-radius: 34px;
+  cursor: pointer;
+  border: 2px solid #111;   /* contour autour du slider */
+  transition: 0.4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 22px;      /* taille d'origine du cercle */
+  width: 22px;
+  left: 3px;
+  top: 3px;
+  background-color: #111;
+  border-radius: 50%; /* contour du cercle pour le rendre visible */
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #fff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(32px);
+}
+
+
+/* Adaptation pour le menu burger */
+@media (max-width: 600px) {
+  .switch-container {
+    max-width: 90%;
+    padding: 10px;
+  }
+  #affichage-container {
+    font-size: 1.2em;
+  }
+}
