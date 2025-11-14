@@ -10,7 +10,7 @@ $secondes = intval(date("s"));
 <head>
 <meta charset="UTF-8">
 <title>Secondes</title>
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" href="./img/site-icon.ico">
 </head>
 <body>
